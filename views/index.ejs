@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writer's Ladder</title>
+</head>
+<body>
+    <h1>Writer's Ladder</h1>
+
+    <form action="/pesquisar" id="pesquisar" method="post">
+        <input type="text" name="palavra">
+        <button type="submit">pesquisar</button>
+    </form>
+    <% if (locals.sinonimos) { %>
+        <ul>
+            <% sinonimos.forEach((sinonimo) => { %>
+                <li><%= sinonimo%></li>
+            <%}) %>
+        </ul>
+    <% } %>
+</body>
+</html>
