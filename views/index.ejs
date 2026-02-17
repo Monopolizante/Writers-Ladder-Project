@@ -16,9 +16,8 @@
         <form action="/pesquisar" id="pesquisar" method="post">
             <input type="text" name="palavra" class="barra-pesquisa" placeholder="Any word that you want.." autocomplete="off">
             <button type="submit" class="botao-pesquisar">Pesquisar</button>
-            <script src="animation.js " defer></script>
+
         </form>
-    
     </div>
     <div class="lista">
         <% if (locals.sinonimos) { %>
@@ -29,10 +28,9 @@
                     <% j++ %>
                 <%}) %>
             </ul>
-        </div>
-        
-    <% } else { %>
-        <h2>Waiting for search...</h2>
-    <% } %>
+        <% } else { %>
+            <h2>Waiting for search...</h2>
+        <% } %>
+    </div>
 </body>
 </html>

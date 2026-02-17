@@ -33,6 +33,7 @@ app.post("/pesquisar", async (req, res) => {
         res.render("index.ejs", { sinonimos: synonyms, duration: timing, j: 0 })
     } catch (error) {
         console.log(error)
+        res.render("index.ejs", {sinonimo: "", })
     }
 })
 
