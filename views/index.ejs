@@ -5,23 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writer's Ladder</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=zodiak@300,400&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <h1>Writer's Ladder</h1>
+    <div class="main">
+        <h1>Writer's Ladder</h1>
+    </div>
     <div class="form">
         <form action="/pesquisar" id="pesquisar" method="post">
-            <input type="text" name="palavra">
-            <button type="submit">pesquisar</button>
+            <input type="text" name="palavra" class="barra-pesquisa" placeholder="Any word that you want.." autocomplete="off">
+            <button type="submit" class="botao-pesquisar">Pesquisar</button>
         </form>
+    
     </div>
     <div class="lista">
         <% if (locals.sinonimos) { %>
+            <h2>Synonyms</h2>
             <ul class="lista-sinonimos">
                 <% sinonimos.forEach((sinonimo) => { %>
                     <li class="sinonimo"><%= sinonimo%></li>
                 <%}) %>
             </ul>
         </div>
+    <% } else { %>
+        <h2>Waiting for search...</h2>
     <% } %>
 </body>
 </html>

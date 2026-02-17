@@ -1,17 +1,65 @@
+body{
+    background-color:#023047 ;
+    height: 100vh;
+}
+li, h1, h2, input, button {
+    font-family: 'Zodiak', serif;
+    color: #219ebc;
+    text-align: center;
+}
+h1 {
+    font-size: 40pt;
+}
+h2 {
+    font-size: 36pt;
+}
+.main, .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.barra-pesquisa{
+    background-color: #045177;
+    border: 0;
+    height: 30px;
+    width: 300px;
+    font-size: 16pt;
+    color: #15afd6;
+    
+}
+.botao-pesquisar{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+} 
 .sinonimo{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(1, 93, 199);
-    border-radius: 10%;
-    padding: 20%;
+    background-color: #056b9e;
+    border-radius: 3%;
+    padding: 10%;
     text-align: center;
     color: rgb(23, 187, 236);;
-    font-size: 32pt;
+    font-size: 20pt;
     list-style: none;
-    list-style: none;
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
 }
 .lista-sinonimos{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-row: repeat(5,1fr);
-    gap: 30px
+    gap: 30px;
+    padding: 0;
+    
+}
+@keyframes fadeIn{
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
