@@ -43,7 +43,6 @@ h2 {
     animation-name: fadeIn;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
-    animation-duration: .5s;
 }
 .lista-sinonimos{
     display: grid;
@@ -55,7 +54,7 @@ h2 {
 }
 @keyframes fadeIn{
     0%{
-        transform: translateY(-100px);
+        transform: translateY(-50px);
         opacity: 0;
     }
     100%{
