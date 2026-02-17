@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writer's Ladder</title>
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
     <h1>Writer's Ladder</h1>
-
-    <form action="/pesquisar" id="pesquisar" method="post">
-        <input type="text" name="palavra">
-        <button type="submit">pesquisar</button>
-    </form>
-    <% if (locals.sinonimos) { %>
-        <ul>
-            <% sinonimos.forEach((sinonimo) => { %>
-                <li><%= sinonimo%></li>
-            <%}) %>
-        </ul>
+    <div class="form">
+        <form action="/pesquisar" id="pesquisar" method="post">
+            <input type="text" name="palavra">
+            <button type="submit">pesquisar</button>
+        </form>
+    </div>
+    <div class="lista">
+        <% if (locals.sinonimos) { %>
+            <ul class="lista-sinonimos">
+                <% sinonimos.forEach((sinonimo) => { %>
+                    <li class="sinonimo"><%= sinonimo%></li>
+                <%}) %>
+            </ul>
+        </div>
     <% } %>
 </body>
 </html>
