@@ -20,17 +20,24 @@
         </form>
     </div>
     <div class="lista">
-        <% if (locals.sinonimos) { %>
+        <% if (locals.erro) { %>
+            <h2 style="color: var(--accent-color);"><%= erro %></h2>
+            <p style="color: var(--text-main);">Check the spelling or try a different word.</p>
+            
+        <% } else if (locals.sinonimos) { %>
             <h2>Synonyms</h2>
             <ul class="lista-sinonimos">
-                <% sinonimos.forEach((sinonimo) => { %>
-                    <li class="sinonimo" style=<%= duration[j] %>><%= sinonimo %></li>
-                    <% j++ %>
-                <%}) %>
+                <% sinonimos.forEach((sinonimo, index) => { %>
+                    <li class="sinonimo" style="animation-delay: <%= index * 0.1 %>s;">
+                        <%= sinonimo %>
+                    </li>
+                <% }) %>
             </ul>
+            
         <% } else { %>
             <h2>Waiting for search...</h2>
         <% } %>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

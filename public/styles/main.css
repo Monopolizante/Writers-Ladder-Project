@@ -1,64 +1,101 @@
-body{
-    background-color:#023047 ;
+/* Paleta de Cores Moderna */
+:root {
+    --bg-color: #F8F9FA;       /* Fundo claro, quase branco, descansa a vista */
+    --text-main: #2B2D42;      /* Cinza muito escuro para os títulos (elegante) */
+    --accent-color: #EF233C;   /* Vermelho/Coral vibrante para chamar atenção */
+    --card-bg: #FFFFFF;        /* Fundo branco para os resultados e barra de busca */
+}
+
+body {
+    background-color: var(--bg-color);
     height: 100vh;
-}
-li, h1, h2, input, button {
+    margin: 0;
     font-family: 'Zodiak', serif;
-    color: #219ebc;
-    text-align: center;
+    color: var(--text-main);
 }
+
+h1, h2 {
+    text-align: center;
+    color: var(--text-main);
+}
+
 h1 {
     font-size: 40pt;
+    margin-top: 50px;
 }
+
 h2 {
-    font-size: 36pt;
+    font-size: 24pt;
+    color: var(--accent-color); /* Título dos resultados com a cor de destaque */
 }
-.main, .form{
+
+.main, .form {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.barra-pesquisa{
-    background-color: #045177;
-    border: 0;
-    height: 30px;
-    width: 300px;
+
+.barra-pesquisa {
+    background-color: var(--card-bg);
+    border: 2px solid #E2E8F0;
+    border-radius: 8px; /* Bordas arredondadas modernas */
+    height: 50px;
+    width: 400px;
     font-size: 16pt;
-    color: #15afd6;
-    
+    color: var(--text-main);
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: all 0.3s ease;
 }
-.botao-pesquisar{
-    display: none;
-    opacity: 0;
-    visibility: hidden;
+
+.barra-pesquisa:focus {
+    outline: none;
+    border-color: var(--accent-color); /* Brilha na cor de destaque ao clicar */
+    box-shadow: 0 4px 12px rgba(239, 35, 60, 0.2);
+}
+
+.botao-pesquisar {
+    display: none; /* Mantido como no seu original */
 } 
-.sinonimo{
-    background-color: #056b9e;
-    border-radius: 3%;
-    padding: 10%;
+
+/* Estilo da lista de palavras */
+.lista {
+    max-width: 800px;
+    margin: 40px auto;
     text-align: center;
-    color: rgb(23, 187, 236);;
-    font-size: 20pt;
-    list-style: none;
-    animation-name: fadeIn;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
 }
-.lista-sinonimos{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-row: repeat(5,1fr);
-    gap: 30px;
+
+.lista-sinonimos {
     padding: 0;
-    
+    display: flex;
+    flex-wrap: wrap; /* Faz as palavras quebrarem a linha como tags */
+    justify-content: center;
+    gap: 15px; /* Espaço entre as palavras */
 }
-@keyframes fadeIn{
-    0%{
-        transform: translateY(-50px);
+
+.sinonimo {
+    background-color: var(--card-bg);
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid var(--accent-color); /* Detalhe lateral charmoso */
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: var(--text-main);
+    font-size: 16pt;
+    list-style: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    
+    /* A nossa animação em cascata continua aqui! */
+    opacity: 0; 
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-20px);
         opacity: 0;
     }
-    100%{
-        transform: translateY(0px);
+    100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }
