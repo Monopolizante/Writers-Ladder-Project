@@ -29,13 +29,13 @@ h2 {
     color: var(--accent-color); /* Título dos resultados com a cor de destaque */
 }
 
-.main, .form {
+.main, .form form{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.barra-pesquisa {
+.barra-pesquisa  {
     background-color: var(--card-bg);
     border: 2px solid #E2E8F0;
     border-radius: 8px; /* Bordas arredondadas modernas */
@@ -44,6 +44,20 @@ h2 {
     font-size: 16pt;
     color: var(--text-main);
     padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: all 0.3s ease;
+}
+.drop-down {
+    background-color: var(--card-bg);
+    border: 2px solid #E2E8F0;
+    border-radius: 8px; /* Bordas arredondadas modernas */
+    height: 50px;
+    width: 400px;
+    font-size: 16pt;
+    color: var(--text-main);
+    padding: 0 20px;
+    order: 2;
+    flex-wrap: wrap;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra suave */
     transition: all 0.3s ease;
 }
