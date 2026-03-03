@@ -11,11 +11,20 @@ app.get("/", (req, res) => {
 
 app.post("/pesquisar", async (req, res) => {
     try {
-        
+
         let palavra = req.body.palavra.toLowerCase().trim();//Vai Tirar espaços em branco e pesquisar em minúsculo (as palvras)
-        let response = await axios.get(`https://freedictionaryapi.com/api/v1/entries/en/${palavra}`)
-        let synonyms = response.data.entries[0].synonyms
-        res.render("index.ejs", { sinonimos: synonyms })
+        let tipo = req.body.type
+        if (tipo == "synonym") {
+            let response = await axios.get(`https://freedictionaryapi.com/api/v1/entries/en/${palavra}`)
+            let words = response.data.entries[0].synonyms
+            res.render("index.ejs", { sinonimos: words })
+        } else if (tipo == "meaning") {
+            let response = await axios.get(`https://freedictionaryapi.com/api/v1/entries/en/${palavra}`)
+            let words = response.data.entries[0].senses[0].definition
+            console.log(words)
+            res.render("index.ejs", { significados: words })
+        }
+        
     } catch (error) {
         console.log("Erro na pesquisa:", error.message);
         // Enviamos uma variável 'erro' para o HTML avisando o que aconteceu
