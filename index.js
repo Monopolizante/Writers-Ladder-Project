@@ -17,12 +17,12 @@ app.post("/pesquisar", async (req, res) => {
         if (tipo == "synonym") {
             let response = await axios.get(`https://freedictionaryapi.com/api/v1/entries/en/${palavra}`)
             let words = response.data.entries[0].synonyms
-            res.render("index.ejs", { sinonimos: words })
+            res.render("index.ejs", { sinonimos: words , selecionado: tipo})
         } else if (tipo == "meaning") {
             let response = await axios.get(`https://freedictionaryapi.com/api/v1/entries/en/${palavra}`)
-            let words = response.data.entries[0].senses[0].definition
+            let words = response.data.entries[0].senses
             console.log(words)
-            res.render("index.ejs", { significados: words })
+            res.render("index.ejs", { significados: words, selecionado: tipo })
         }
         
     } catch (error) {

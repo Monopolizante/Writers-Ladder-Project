@@ -17,8 +17,8 @@
             <input type="text" name="palavra" class="barra-pesquisa" placeholder="Any word that you want.." autocomplete="off">
             <button type="submit" class="botao-pesquisar">Pesquisar</button>
             <select class="drop-down" name="type">
-                <option value="synonym">Synonyms</option>
-                <option value="meaning">Meanings</option>
+                <option value="synonym" <% if (selecionado == "synonym"){%> selected <%} %>>Synonyms</option>
+                <option value="meaning" <% if (selecionado == "meaning"){%> selected <%} %>>Meanings</option>
             </select>
         </form>
     </div>
@@ -37,7 +37,9 @@
                 <% }) %>
             </ul>
         <% } else if (locals.significados) { %>
-            <p><%= significados %></p>    
+            <% significados.forEach((significado, index) =>{ %>
+                <p class="texto-significado"><%= significado.definition %></p>    
+            <% }) %>
         <% } else { %>
             <h2 class="waiting">Waiting for search...</h2>
         <% } %>
