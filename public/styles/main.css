@@ -1,7 +1,7 @@
 /* Paleta de Cores Moderna */
 :root {
     --bg-color: #F8F9FA;       /* Fundo claro, quase branco, descansa a vista */
-    --text-main: #2B2D42;      /* Cinza muito escuro para os títulos (elegante) */
+    --text-main: #1f2030;      /* Cinza muito escuro para os títulos (elegante) */
     --accent-color: #EF233C;   /* Vermelho/Coral vibrante para chamar atenção */
     --card-bg: #FFFFFF;        /* Fundo branco para os resultados e barra de busca */
 }
@@ -73,10 +73,17 @@ h2 {
 } 
 
 /* Estilo da lista de palavras */
+.div-da-lista {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 .lista {
-    max-width: 800px;
-    margin: 40px auto;
     text-align: center;
+    display: grid;
+    width: 90%;
+    justify-items: center;
+    align-items: center;
 }
 
 .lista-sinonimos {
@@ -86,7 +93,11 @@ h2 {
     justify-content: center;
     gap: 15px; /* Espaço entre as palavras */
 }
-
+.texto-significado{
+    background-color: var(--card-bg);
+    padding: 10px;
+    font-size: 16pt;
+}
 .sinonimo {
     background-color: var(--card-bg);
     border: 1px solid #E2E8F0;
@@ -100,7 +111,7 @@ h2 {
     
     /* A nossa animação em cascata continua aqui! */
     opacity: 0; 
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;   
 }
 
 @keyframes fadeIn {

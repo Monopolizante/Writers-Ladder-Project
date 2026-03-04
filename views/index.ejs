@@ -17,32 +17,36 @@
             <input type="text" name="palavra" class="barra-pesquisa" placeholder="Any word that you want.." autocomplete="off">
             <button type="submit" class="botao-pesquisar">Pesquisar</button>
             <select class="drop-down" name="type">
-                <option value="synonym" <% if (selecionado == "synonym"){%> selected <%} %>>Synonyms</option>
-                <option value="meaning" <% if (selecionado == "meaning"){%> selected <%} %>>Meanings</option>
+                <option value="synonym" <%= locals.selecionado === "synonym" ? "selected" : "" %>>Synonyms</option>
+                <option value="meaning" <%= locals.selecionado === "meaning" ? "selected" : "" %>>Meanings</option>
             </select>
         </form>
     </div>
-    <div class="lista">
-        <% if (locals.erro) { %>
-            <h2 style="color: var(--accent-color);"><%= erro %></h2>
-            <p style="color: var(--text-main);">Check the spelling or try a different word.</p>
-            
-        <% } else if (locals.sinonimos) { %>
-            <h2>Synonyms</h2>
-            <ul class="lista-sinonimos">
-                <% sinonimos.forEach((sinonimo, index) => { %>
-                    <li class="sinonimo" style="animation-delay: <%= index * 0.1 %>s;">
-                        <%= sinonimo %>
-                    </li>
+    
+    <div class="div-da-lista">
+        <div class="lista">
+            <% if (locals.erro) { %>
+                <h2 style="color: var(--accent-color);"><%= erro %></h2>
+                <p style="color: var(--text-main);">Check the spelling or try a different word.</p>
+                
+            <% } else if (locals.sinonimos) { %>
+                <h2>Synonyms</h2>
+                <ul class="lista-sinonimos">
+                    <% sinonimos.forEach((sinonimo, index) => { %>
+                        <li class="sinonimo" style="animation-delay: <%= index * 0.1 %>s;">
+                            <%= sinonimo %>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else if (locals.significados) { %>
+                <h2>Meanings for the word <i><%=palavraPesquisada %></i></h2>
+                <% significados.forEach((significado, index) =>{ %>
+                    <p class="texto-significado"><%= significado.definition %></p>    
                 <% }) %>
-            </ul>
-        <% } else if (locals.significados) { %>
-            <% significados.forEach((significado, index) =>{ %>
-                <p class="texto-significado"><%= significado.definition %></p>    
-            <% }) %>
-        <% } else { %>
-            <h2 class="waiting">Waiting for search...</h2>
-        <% } %>
+            <% } else { %>
+                <h2 class="waiting">Waiting for search...</h2>
+            <% } %>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
