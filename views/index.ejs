@@ -41,7 +41,11 @@
             <% } else if (locals.significados) { %>
                 <h2>Meanings for the word <i><%=palavraPesquisada %></i></h2>
                 <% significados.forEach((significado, index) =>{ %>
-                    <p class="texto-significado"><%= significado.definition %></p>    
+                    <p class="texto-significado">
+                        <%= significado.definition %>
+                        <br><br>
+                        <span class="exemplos">"<%= significado.examples %>"</span>
+                    </p>    
                 <% }) %>
             <% } else { %>
                 <h2 class="waiting">Waiting for search...</h2>

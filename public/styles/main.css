@@ -3,9 +3,10 @@
     --bg-color: #F8F9FA;       /* Fundo claro, quase branco, descansa a vista */
     --text-main: #1f2030;      /* Cinza muito escuro para os títulos (elegante) */
     --accent-color: #EF233C;   /* Vermelho/Coral vibrante para chamar atenção */
-    --card-bg: #FFFFFF;        /* Fundo branco para os resultados e barra de busca */
+    --card-bg: #FFFFFF;
+    --example-color: #3533c0;  
+    --example-hover: #F5F730;
 }
-
 body {
     background-color: var(--bg-color);
     height: 100vh;
@@ -28,7 +29,6 @@ h2 {
     font-size: 24pt;
     color: var(--accent-color); /* Título dos resultados com a cor de destaque */
 }
-
 .main, .form form{
     display: flex;
     align-items: center;
@@ -72,6 +72,23 @@ h2 {
     display: none; /* Mantido como no seu original */
 } 
 
+.exemplos {
+    color: var(--example-color);
+    font-size: 18pt;
+    display: block;
+    margin-top: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.exemplos::before{
+    content: "Example:";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 /* Estilo da lista de palavras */
 .div-da-lista {
     display: flex;
@@ -96,7 +113,9 @@ h2 {
 .texto-significado{
     background-color: var(--card-bg);
     padding: 10px;
-    font-size: 16pt;
+    font-size: 18pt;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
 }
 .sinonimo {
     background-color: var(--card-bg);
@@ -105,10 +124,9 @@ h2 {
     border-radius: 6px;
     padding: 10px 20px;
     color: var(--text-main);
-    font-size: 16pt;
+    font-size: 18pt;
     list-style: none;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    
     /* A nossa animação em cascata continua aqui! */
     opacity: 0; 
     animation: fadeIn 0.5s ease-out forwards;   
