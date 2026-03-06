@@ -1,0 +1,189 @@
+/* Importando as fontes direto do Google Fonts para garantir o visual perfeito */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+  /* Paleta Vibrante e Magnética */
+  --primary-color: #6366f1; /* Indigo elétrico */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Roxo para Rosa */
+  --bg-color: #f0fdfa; /* Um fundo quase branco, levemente menta/tecnológico */
+  --card-bg: #ffffff;
+  --text-main: #0f172a; /* Quase preto, mais suave para os olhos */
+  --text-muted: #64748b;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(99, 102, 241, 0.15); /* Sombra colorida! */
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Fonte moderna e limpa */
+  color: var(--text-main);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 4rem;
+  
+  /* Padrão sutil de fundo para dar textura sem poluir */
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: var(--card-bg);
+  padding: 3rem;
+  border-radius: 24px; /* Bordas bem arredondadas, amigáveis */
+  box-shadow: var(--shadow-lg);
+  
+  /* A Animação do "Efeito Uau" logo ao abrir a página */
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- TÍTULO DO APP --- */
+h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+/* --- SEARCH BAR (A barra magnética) --- */
+.search-bar {
+  display: flex;
+  background-color: #f8fafc;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 8px 12px 8px 24px;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Efeito de foco neon na barra de pesquisa */
+.search-bar:focus-within {
+  border-color: var(--primary-color);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  outline: none;
+  color: var(--text-main);
+}
+
+.search-bar button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.search-bar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.4);
+}
+
+/* --- O RESULTADO DA PALAVRA (Estilo Google, mas imponente) --- */
+.word-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px dashed #e2e8f0;
+}
+
+.word-title {
+  font-family: 'Lora', serif; /* Fonte clássica de dicionário */
+  font-size: 4.5rem; /* Gigante e chamativa */
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.word-phonetic {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+/* --- SINÔNIMOS (Pílulas vibrantes) --- */
+.synonyms-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.synonym-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sinonimo-item {
+  background: #f1f5f9;
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  /* Sua animação mantida! */
+  animation-name: aparecerSuave;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); /* Efeito "mola" */
+  animation-fill-mode: backwards;
+}
+
+.sinonimo-item:hover {
+  background: var(--primary-gradient);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecerSuave {
+  0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.error-message {
+  text-align: center;
+  color: #ef4444;
+  background: #fef2f2;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
