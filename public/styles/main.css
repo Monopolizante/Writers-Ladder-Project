@@ -99,3 +99,21 @@ h2 {
         opacity: 1;
     }
 }
+
+@media (max-width: 600px) {
+    .barra-pesquisa {
+        width: 90%;
+    }
+    .main{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .sinonimo{
+        width: 70%;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+    .waiting{
+        font-size: 18pt;
+    }
+}
